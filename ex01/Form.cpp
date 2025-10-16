@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:53:34 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/15 20:17:21 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:21:13 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,19 @@ Form::~Form()
 {
 	std::cout << "Destructor called\n";
 }
-std::string Form::_getName() {return this->Name;}
-int Form::_getTo_sign() {return this->to_sign;}
-int Form::_getTo_exec() {return this->to_exec;}
+std::string Form::_getName() const {return this->Name;}
+int Form::_getTo_sign() const {return this->to_sign;}
+int Form::_getTo_exec() const {return this->to_exec;}
+bool Form::_getStatus() const {return this->is_sign;}
 
+std::ostream &operator<<(std::ostream &out, const Form &to_print)
+{
+    out << "Form name: " << to_print._getName()
+        << " Status: " << to_print._getStatus()
+        << " Signature level: " << to_print._getTo_sign()
+        << " Execution level: " << to_print._getTo_exec() << std::endl;
+    return out;
+}
 void Form::beSigned(Bureaucrat& check)
 {
 	if(check._getGrade() > this->to_sign)

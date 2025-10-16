@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:53:38 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/15 20:06:09 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:07:55 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ public:
 				return("Form already signed");
 			}
 	};
-	std::string _getName();
-	int _getTo_sign();
-	int _getTo_exec();
+	std::string _getName() const;
+	int _getTo_sign() const;
+	int _getTo_exec() const;
+	bool _getStatus() const;
 	void beSigned(Bureaucrat& check);
 };
-std::ostream &operator<<(const std::ostream &out,const Form& to_print);
+std::ostream &operator<<(std::ostream &out,const Form &to_print);
 #endif
