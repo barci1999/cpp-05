@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pablo <pablo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:40 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/16 19:01:43 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:19:12 by pablo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 	//std::cout << "Parametered constructor called." << std::endl;
 	this->target = target;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), target(other.target)
 {
 	//std::cout << "Copied constructor called." << std::endl;
 	this->target = other.target;
@@ -48,7 +48,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw GradeTooLowException();
 	else if (executor._getGrade() < 137)
 		throw GradeTooHighException();
-	std::ofstream file(this->target + "_shrubbery");
+	std::ofstream file((this->target + "_shrubbery").c_str());
 	if(!file)
 		throw std::runtime_error("Error creating file");
 	this->print_tree(file);

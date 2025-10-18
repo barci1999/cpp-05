@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pablo <pablo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:42 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/16 18:50:27 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:14:28 by pablo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	~ShrubberyCreationForm();
 	
 	void print_tree(std::ofstream& file) const;
-	void ShrubberyCreationForm::execute(Bureaucrat const & executor) const;
+	void execute(Bureaucrat const & executor) const;
 };
 
 				
