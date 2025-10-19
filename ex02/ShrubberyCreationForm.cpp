@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:40 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/19 14:25:23 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/19 16:58:58 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if(executor._getGrade() > 137)
 		throw GradeTooLowException();
-	else if (executor._getGrade() < 137)
-		throw GradeTooHighException();
+	else if (this->is_sign == false)
+	{
+		throw FormNotSign();
+	}
+	
 	std::ofstream file((this->target + "_shrubbery").c_str());
 	if(!file)
 		throw std::runtime_error("Error creating file");

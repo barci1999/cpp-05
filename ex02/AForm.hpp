@@ -43,7 +43,14 @@ protected:
 		{
 			public:
 				const char* what() const throw (){
-					return("AForm already signed");
+					return("the form already signed");
+				}
+		};
+		class FormNotSign : public std::exception
+		{
+			public:
+				const char* what() const throw (){
+					return("the form is not sign");
 				}
 		};
 public:

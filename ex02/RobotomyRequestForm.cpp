@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:35 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/19 15:10:45 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/19 16:57:44 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ void RobotomyRequestForm::print(std::ostream& os) const {
 }
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if(executor._getGrade() < 45)
-		throw GradeTooHighException();
-	else if (executor._getGrade() > 45)
+	if (executor._getGrade() > 45)
 	{
-		throw GradeTooHighException();
+		throw GradeTooLowException();
+	}
+	else if (this->is_sign == false)
+	{
+		throw FormNotSign();
 	}
 	std::cout << "Incredible drilling noises." <<  std::endl;
 	std::srand(time(0));
