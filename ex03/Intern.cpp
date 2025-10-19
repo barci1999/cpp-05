@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 17:20:28 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/19 18:10:33 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/19 18:39:49 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ AForm* Intern::makeForm(std::string type,std::string target)
 {
 	if(type.empty() || target.empty())
 		throw EmptyParameters();
-	std::string Form_type[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	std::string Form_type[3] = {"presidential pardon","robotomy request","shrubbery creation"};
 	AForm *(*functions[3])(std::string) = {&makePresidential,&makeRobotomy,&makeShrubbery};
 	for (int i = 0; i < 3; i++)
 	{

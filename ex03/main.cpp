@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 17:59:39 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/19 18:13:19 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/19 18:42:10 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,17 @@
 
 int main(void)
 {
-	Intern someRandomIntern;
-	AForm* rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	std::cout << *rrf;
+	try
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		std::cout << *rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	return(0);
 }
