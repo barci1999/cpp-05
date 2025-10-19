@@ -51,13 +51,10 @@ int AForm::_getTo_sign() const {return this->to_sign;}
 int AForm::_getTo_exec() const {return this->to_exec;}
 bool AForm::_getStatus() const {return this->is_sign;}
 
-std::ostream &operator<<(std::ostream &out, const AForm &to_print)
+std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
-    out << "AForm name: " << to_print._getName()
-        << " Status: " << to_print._getStatus()
-        << " Signature level: " << to_print._getTo_sign()
-        << " Execution level: " << to_print._getTo_exec() << std::endl;
-    return out;
+    form.print(os);
+    return os;
 }
 void AForm::beSigned(Bureaucrat& check)
 {

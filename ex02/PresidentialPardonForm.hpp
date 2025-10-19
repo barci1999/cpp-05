@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:33 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/16 16:13:04 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/19 13:33:47 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ public:
 	PresidentialPardonForm(const PresidentialPardonForm& other);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 	~PresidentialPardonForm();
+
+	void execute(Bureaucrat const & executor) const;
 };
 #endif

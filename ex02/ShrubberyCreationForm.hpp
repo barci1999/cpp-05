@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablo <pablo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:42 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/18 14:14:28 by pablo            ###   ########.fr       */
+/*   Updated: 2025/10/19 14:22:11 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ public:
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 	~ShrubberyCreationForm();
 	
+	std::string getTarget() const;
 	void print_tree(std::ofstream& file) const;
 	void execute(Bureaucrat const & executor) const;
+	void print(std::ostream& os) const;
 };
-
+std::ostream &operator<<(std::ostream &out,const ShrubberyCreationForm &to_print);
 				
 #endif

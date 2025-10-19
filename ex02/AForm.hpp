@@ -16,6 +16,7 @@
 # include"string"
 # include"Bureaucrat.hpp"
 # include"fstream"
+
 class Bureaucrat;
 class AForm
 {
@@ -50,7 +51,7 @@ public:
 	AForm(std::string Name,bool is_sign,const int to_sign,const int to_exec);
 	AForm(const AForm& other);
 	AForm& operator=(const AForm& other);
-	~AForm();
+	virtual ~AForm();
 
 	std::string _getName() const;
 	int _getTo_sign() const;
@@ -58,6 +59,7 @@ public:
 	bool _getStatus() const;
 	void beSigned(Bureaucrat& check);
 	virtual void execute(Bureaucrat const & executor) const =  0;
+	virtual void print(std::ostream& os) const = 0;
 };
 std::ostream &operator<<(std::ostream &out,const AForm &to_print);
 #endif

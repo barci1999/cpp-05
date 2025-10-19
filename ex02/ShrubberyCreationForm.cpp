@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablo <pablo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:47:40 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/18 14:19:12 by pablo            ###   ########.fr       */
+/*   Updated: 2025/10/19 14:25:23 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,24 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	{
 		return(*this);
 	}
-	this->target = other.target;
 	AForm::operator=(other);
+	this->target = other.target;
 	return(*this);
 	
 }
+void ShrubberyCreationForm::print(std::ostream& os) const {
+    os << "Type Form: " << _getName() << std::endl
+       << "Status: " << _getStatus() << std::endl
+       << "Signature level: " << _getTo_sign() << std::endl
+       << "Execution level: " << _getTo_exec() << std::endl
+       << "Target: " << getTarget() << std::endl;
+}
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
+std::string ShrubberyCreationForm::getTarget() const
+{
+	return(this->target);
+}
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if(executor._getGrade() > 137)
